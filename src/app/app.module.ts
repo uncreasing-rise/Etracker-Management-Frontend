@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,8 @@ import { QuizEditComponent } from './quiz-management/quiz-edit/quiz-edit.compone
 import { AttendanceListComponent } from './attendance-management/attendance-list/attendance-list.component';
 import { AttendanceDetailComponent } from './attendance-management/attendance-detail/attendance-detail.component';
 import { ReportsComponent } from './reports/reports.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,13 +48,15 @@ import { ReportsComponent } from './reports/reports.component';
     QuizEditComponent,
     AttendanceListComponent,
     AttendanceDetailComponent,
-    ReportsComponent
+    ReportsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

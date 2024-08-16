@@ -1,22 +1,23 @@
+/* src/app/auth/login/login.component.css */
+
 .login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 2rem;
-  
-    .form-group {
-      margin-bottom: 1rem;
-    }
-  
-    .btn {
-      width: 100%;
-    }
-  
-    .alert {
-      margin-top: 1rem;
-    }
-  
-    .invalid-feedback {
-      color: red;
-    }
-  }
-  
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.login-container .form-group {
+  margin-bottom: 1rem;
+}
+
+.login-container .btn {
+  width: 100%;
+}
+
+.login-container .alert {
+  margin-top: 1rem;
+}
+
+.login-container .invalid-feedback {
+  color: red;
+}
