@@ -1,36 +1,27 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-  UrlTree,
-  Router,
-} from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service'; // Adjust the path to your AuthService
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { Observable, of } from 'rxjs';
+import { map, tap, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RoleGuard implements CanActivate {
+
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ):
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    const expectedRole = route.data['expectedRole']; // This is the role expected to access the route
-    const userRole = this.authService.getRole(); // Get the user's role from AuthService
+  ): Observable<boolean> | Promise<boolean> | boolean {
+    const requiredRole = route.data.role as string;
 
-    if (userRole === expectedRole) {
-      return true; // Allow access if roles match
+    if (this.authService.hasRole(requiredRole)) {
+      return of(true);
     } else {
-      this.router.navigate(['/login']); // Redirect to login if roles don't match
-      return false;
+      this.router.navigate(['/login']);
+      return of(false);
     }
   }
 }
