@@ -1,0 +1,22 @@
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+  
+    .form-group {
+      margin-bottom: 1rem;
+    }
+  
+    .btn {
+      width: 100%;
+    }
+  
+    .alert {
+      margin-top: 1rem;
+    }
+  
+    .invalid-feedback {
+      color: red;
+    }
+  }
+  
