@@ -1,23 +1,91 @@
-/* src/app/auth/login/login.component.css */
-
-.login-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 2rem;
+html,
+body {
+  height: 100%; /* Đảm bảo body và html chiếm toàn bộ chiều cao viewport */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Ẩn thanh cuộn */
 }
 
-.login-container .form-group {
-  margin-bottom: 1rem;
+body.my-login-page {
+  background-image: url("../../../assets/images/background.png"); /* Đường dẫn đến ảnh nền */
+  background-size: cover; /* Đảm bảo ảnh phủ toàn bộ phần tử */
+  background-position: center; /* Căn giữa ảnh nền */
+  background-attachment: fixed; /* Giữ ảnh nền cố định khi cuộn */
+  background-color: #f7f9fb; /* Màu nền dự phòng nếu ảnh nền không tải được */
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Đảm bảo chiều cao tối thiểu là toàn bộ chiều cao viewport */
 }
 
-.login-container .btn {
+.my-login-page .brand {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 1;
+}
+
+.my-login-page .brand img {
   width: 100%;
+  height: auto;
 }
 
-.login-container .alert {
-  margin-top: 1rem;
+.my-login-page .card-wrapper {
+  width: 400px;
+  max-width: 90%; /* Đảm bảo độ rộng responsive */
 }
 
-.login-container .invalid-feedback {
-  color: red;
+.my-login-page .card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.my-login-page .card.fat {
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.my-login-page .card .card-title {
+  margin-bottom: 30px;
+}
+
+.my-login-page .form-control {
+  border-width: 2.3px;
+}
+
+.my-login-page .form-group label {
+  width: 100%;
+  border-radius: 20px;
+}
+.my-login-page .form-group input {
+  border-radius: 15px;
+}
+
+.my-login-page .btn.btn-block {
+  padding: 12px 10px;
+  border-radius: 30px;
+}
+
+.my-login-page .footer {
+  margin: 40px 0;
+  color: #888;
+  text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+  .my-login-page .card-wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .my-login-page .card.fat {
+    padding: 15px;
+  }
 }
